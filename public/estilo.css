@@ -27,7 +27,7 @@ body{
     outline: none;
 }
     .tab-btn.active{
-        background-color: beige;
+        background-color: rgb(130, 189, 139);
         font-weight: bold;
     }
 
@@ -39,13 +39,22 @@ body{
         display: block; /*muestra el elemento como bloque */
     }
 
+#login h2 {
+    text-align: center;
+}
+#registro h2 {
+    text-align: center;
+}
+
 .form-group{
     margin-bottom: 15px;
+
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+
 }
 
 /* Campos inputs*/
