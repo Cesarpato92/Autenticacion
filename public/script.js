@@ -25,6 +25,19 @@ function showTab(tabName) {
     document.getElementById('registroMensaje').textContent = '';
 }
 
+function validarFormulario(username, password) {
+    if (!username || !password) {
+        return 'Todos los campos son obligatorios';
+    }
+    if (username.length < 3) {
+        return 'El usuario debe tener al menos 3 caracteres';
+    }
+    if (password.length < 6) {
+        return 'La contraseña debe tener al menos 6 caracteres';
+    }
+    return null;
+}
+
 // manejador del evento de 'submit' para le formulario de registro
 document.getElementById('registroForm').addEventListener('submit', async (e) =>{
     e.preventDefault(); // Evita el envio tradicional del formulario
@@ -33,6 +46,14 @@ document.getElementById('registroForm').addEventListener('submit', async (e) =>{
     const username = document.getElementById('registroUsername').value;
     const password = document.getElementById('registroPassword').value;
     const mensajeRegistro = document.getElementById('registroMensaje');
+    
+    // validamos los datos antes de procesarlos
+    const errorValidacion = validarFormulario(username, password);
+    if (errorValidacion) {
+        mensajeRegistro.style.color = 'red';
+        mensajeRegistro.textContent = errorValidacion;
+        return; // Detiene la ejecucion 
+    }
 
     try{
         // Enviar peticion POST al backend
@@ -70,13 +91,21 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     // obtemenos las credenciales
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
-    const mensajeLogin = documento.getElementById('loginMensaje');
+    const mensajeLogin = document.getElementById('loginMensaje');
+
+    // validamos los datos antes de procesarlos
+    const errorValidacion = validarFormulario(username, password);
+    if (errorValidacion) {
+        mensajeLogin.style.color = 'red';
+        mensajeLogin.textContent = errorValidacion;
+        return; // Detiene la ejecucion 
+    }
 
     try{
         //Enviamos peticion del login al backend\
         const respuesta = await fetch('/api/login', {
             method: 'POST',
-            headers: {'Content-type': 'application/json'},
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({username, password})
         });
         //parseamos la respuesta JSON
@@ -92,7 +121,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
             // Redirigimos a la pagina de bienvenida despues de 1 segundo
             setTimeout(() => {
-                window.location.href = 'binevenido.html';
+                window.location.href = 'bienvenido.html';
             }, 1000);
         }
         else{
