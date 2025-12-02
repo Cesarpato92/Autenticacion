@@ -1,0 +1,26 @@
+{
+  "name": "autenticacion",
+  "version": "1.0.0",
+  "description": "Autenticacion y registro de inicio de sesion de usuarios conectados a DB MySQL",
+  "homepage": "https://github.com/Cesarpato92/Autenticacion#readme",
+  "bugs": {
+    "url": "https://github.com/Cesarpato92/Autenticacion/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cesarpato92/Autenticacion.git"
+  },
+  "license": "ISC",
+  "author": "Cesar Patiño",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "mysql2": "^3.15.3"
+  }
+}
