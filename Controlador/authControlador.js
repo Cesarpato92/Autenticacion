@@ -11,8 +11,18 @@ const bcrypt = require('bcrypt');
 exports.registro = async (req, res) => {
     // extraemos el username y password del cuerpo de la solicitud
     const { username, password } = req.body;
-
+ 
     try {
+        // validacion de datos
+        if (!username || !password) {
+            return  res.status(400).json( { message: 'Los campos son obligatorios'});
+        }
+        if (username.length < 6) {
+            return  res.status(400).json( { message: 'El usuario debe tener al menos 6 caracteres'});
+        }
+        if (password.length < 8) {
+            return  res.status(400).json( { message: 'La contraseña debe tener al menos 8 caracteres'});
+        }
         // verificacion de si el usuario ya existe
         Usuario.encontrarPorNombre(username, async (err, results) => {
             if (err) {
@@ -22,6 +32,7 @@ exports.registro = async (req, res) => {
                 return res.status(400).json({ message: 'El usuario ya existe' });
             }
 
+            
             // Encriptar el password antes de guardarlo
             const saltRounds = 10; // Número de rondas de sal (cost factor)
             const hashedPassword = await bcrypt.hash(password, saltRounds);

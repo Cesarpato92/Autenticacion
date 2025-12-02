@@ -29,11 +29,11 @@ function validarFormulario(username, password) {
     if (!username || !password) {
         return 'Todos los campos son obligatorios';
     }
-    if (username.length < 3) {
-        return 'El usuario debe tener al menos 3 caracteres';
+    if (username.length < 6) {
+        return 'El usuario debe tener al menos 6 caracteres';
     }
-    if (password.length < 6) {
-        return 'La contraseña debe tener al menos 6 caracteres';
+    if (password.length < 8) {
+        return 'La contraseña debe tener al menos 8 caracteres';
     }
     return null;
 }
