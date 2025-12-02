@@ -75,7 +75,7 @@ exports.login = (req, res) => {
         }
         if (results.length === 0) {
             return res.status(401).json({ 
-                message: 'Error de autenticacion' 
+                message: `El usuario ${username} no existe ` 
             });
         }
         
