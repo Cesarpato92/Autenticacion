@@ -33,10 +33,21 @@
 
 <body>
     <div class="welcome-container">
-        <h1>¡Bienvenido!</h1>
+        <h1 id="welcomeMessage">¡Bienvenido!</h1>
         <p>Has iniciado sesión correctamente.</p>
         <a href="index.html" class="btn-back">Volver al Inicio</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('username');
+            if (username) {
+                //Si el usuario existe en el localStorage
+                //Mostramos el mensaje de bienvenida con el nombre del usuario
+                document.getElementById('welcomeMessage').textContent = `¡Bienvenido, ${username}!`;
+            }
+        });
+    </script>
 </body>
 
 </html>

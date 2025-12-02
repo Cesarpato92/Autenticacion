@@ -1,24 +1,22 @@
-const mysql = require("mysql12");
+const mysql = require('mysql2');
 
 // configuracion de la conexion
 // Se utliza el paquete mysql12 para establecer la conexion
-const connection = mysql.createConnection({
-    host: 'localhost', 
-    user: 'root',      
-    password: 'root',  
-    database: 'login_node' 
+const conexion = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'login_node'
 });
 
 // Establecer conexion con la base de datos
-connection.connect((err) => {
-    if (err) {
-        // Si hay un error se muestra en consola
-        console.error('Error conectando a MySQL:', err);
+conexion.connect((error) => {
+    if (error) {
+        console.error('Error conectando a la DB:', error);
         return;
     }
-    // Mensaje de exito al conectar
-    console.log('Conexion existosa a MySQL');
+    console.log('Conectado a la base de datos MySQL');
 });
 
 // Exportar la conexion para usarla en otros archivos 
-module.exports = connection;
+module.exports = conexion;

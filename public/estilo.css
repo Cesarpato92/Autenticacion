@@ -1,0 +1,79 @@
+body{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.tabs{
+    display: flex;
+    margin-bottom: 20px;
+}
+.tab-btn{
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: rgb(198, 255, 212);
+    cursor: pointer;
+    outline: none;
+}
+    .tab-btn.active{
+        background-color: beige;
+        font-weight: bold;
+    }
+
+.form-container{
+    display: none; /*oculta el elemento */
+}
+
+    .form-container.active {
+        display: block; /*muestra el elemento como bloque */
+    }
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Campos inputs*/
+
+input[type='text'],
+input[type='password'] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Boton de envio */
+button[type='submit'] {
+    width: 100%;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button[type='submit']:hover {
+    background-color: green;
+}
+.mensaje{
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}

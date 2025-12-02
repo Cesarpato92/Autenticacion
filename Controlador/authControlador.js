@@ -15,7 +15,7 @@ exports.registro = (req, res) => {
     // verificacion de si el usuario ya existe
     Usuario.encontrarPorNombre(username, (err, results) => {
         if (err) {
-            return res.staus(500).json({ message: 'Error en la base de datos', error: err});
+            return res.status(500).json({ message: 'Error en la base de datos', error: err});
         }
         if (results.length > 0) {
             return res.status(400).json({ message: 'El usuario ya existe'});
